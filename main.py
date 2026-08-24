@@ -188,7 +188,7 @@ if check_password():
     # Mostra l'immagine corretta in base allo stato
     if not st.session_state["foto_svelata"]:
         st.image(
-            "d597291c-df62-4386-a47a-a45ef554f1f1.jpg",
+            "d597291c-df62-4386-a47a-a45ef554f1f1.JPG",
             use_container_width=True,
         )
         if st.button("Clicca per vedere i nostri figli!", use_container_width=True):
@@ -196,7 +196,7 @@ if check_password():
             st.rerun()
     else:
         st.image(
-            "8b41fd8b-1631-44b6-bda2-8e6e5f3aa7c9.jpg",
+            "8b41fd8b-1631-44b6-bda2-8e6e5f3aa7c9.JPG",
             use_container_width=True,
         )
         st.write("CHE BELLINI SONOOOOOOOOO")
