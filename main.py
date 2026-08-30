@@ -212,9 +212,84 @@ if check_password():
 
     st.divider()
 
-    st.write("ultima modifica 24/08/2026 15:50, e sicuramente non l'ultima...")
-# --- GIF FINALE ---
-# --- GIF ANIMATA FINALE (METODO SICURO BASE64) ---
+    st.write("ultima modifica 24/08/2026, e sicuramente non l'ultima...")
+
+# --- GIOCO: I 25 MOTIVI DA SVELARE UNO A UNO ---
+    st.header("25 cose che amo di te")
+
+    # Lista dei 25 motivi (le tue frasi originali)
+    motivi_25 = [
+        "1. il sorrisone.",
+        "2. sei dolcissima (solo con me).",
+        "3. a entrambi piacciono le macchine!!! (godo la 6h).",
+        "4. hai un fisico della madonna.",
+        "5. ti prendi cura di me visto che sono un pasticcione.",
+        "6. mi manchi subito come ci allontaniamo.",
+        "7. sei una topazza incredibile.",
+        "8. amo il tuo profumo (tranne quando puzzi di kebab con la cipolla).",
+        "9. sei intelligentissima.",
+        "10. quando facciamo cose che non mi piacciono sono comunque felice perchè sono con te.",
+        "11. i tuoi capelli sono bellissimi (soprattutto lisci).",
+        "12. siamo complici in crimini.",
+        "13. mi diverto troppo con te.",
+        "14. eh vabbè le big scopate.",
+        "15. amo dormire con te tutti appiccicati (tranne nel mio letto).",
+        "16. la tua creatività.",
+        "17. tutte le cose che fai con quelle manine.",
+        "18. mi piace un sacco come ti vesti anche se nessuno batterà mai QUEI pantaloncini.",
+        "19. sei la terza figlia dei miei.",
+        "20. insieme mangiamo come due obesoni.",
+        "21. sei tutta schiacciabile.",
+        "22. culo.",
+        "23. tette.",
+        "24. scusa le voci hanno preso il sopravvento.",
+        "25. gli occhioni",
+    ]
+
+    # Inizializza il contatore dei motivi svelati (parte da 0, quindi tutti coperti)
+    if "svelati_count" not in st.session_state:
+        st.session_state["svelati_count"] = 0
+
+    # Pulsante per svelare il prossimo
+    if st.session_state["svelati_count"] < len(motivi_25):
+        if st.button("clicca quiii", width="stretch"):
+            st.session_state["svelati_count"] += 1
+            st.rerun()
+    else:
+        st.success("Li hai svelati tutti! Sei ufficialmente la mia pulce. SIUUUUUUU")
+
+    # Mostra la lista aggiornata: i svelati colorati, i bloccati con il lucchetto
+    for i, motivo in enumerate(motivi_25):
+        if i < st.session_state["svelati_count"]:
+            # Motivo svelato (con il gradiente rosa)
+            st.markdown(
+                f"""
+            <div style="background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); padding: 14px 18px; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 3px 8px rgba(255, 117, 140, 0.2);">
+                <p style="font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 600; color: white; margin: 0;">
+                    {motivo}
+                </p>
+            </div>
+            """,
+                unsafe_allow_html=True,
+            )
+        else:
+            # Motivo ancora bloccato (grigio/misterioso)
+            st.markdown(
+                f"""
+            <div style="background-color: #fce4ec; padding: 12px 18px; border-radius: 12px; margin-bottom: 10px; border: 2px dashed #f8bbd0;">
+                <p style="font-family: 'Poppins', sans-serif; font-size: 15px; color: #ad1457; margin: 0;">
+                    🔒 Motivo n. {i + 1} — <i>Ancora da svelare...</i>
+                </p>
+            </div>
+            """,
+                unsafe_allow_html=True,
+            )
+
+    st.divider()
+
+
+    # --- GIF ANIMATA FINALE (METODO SICURO BASE64) ---
+    st.write("ultima modifica 30/08/2026, e sicuramente non l'ultima...")
     import base64
 
     def gif_to_base64(file_path):
